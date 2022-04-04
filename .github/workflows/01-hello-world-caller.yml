@@ -1,0 +1,8 @@
+name: Calling 01-hello-world
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  call-01-hello-world:
+    uses: repo-ctrl/actions-runbooks/.github/workflows/01-hello-world.yml@main
