@@ -3,6 +3,8 @@ name: Calling 01-hello-world
 on: 
   workflow_dispatch:
   pull_request:
+  repository_dispatch:
+    types: [call-01]
 
 jobs:
   call-01-hello-world:
