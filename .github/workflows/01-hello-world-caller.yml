@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Register the check
-      if: ${{ github.event }} == "repository_dispatch"
+      if: ${{ github.event_name }} == "repository_dispatch"
       uses: SvanBoxel/organization-workflow@main
       with:
         id: ${{ github.event.client_payload.id }}
