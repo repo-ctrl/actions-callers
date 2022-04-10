@@ -10,6 +10,9 @@ jobs:
   register-check:
     runs-on: ubuntu-latest
     steps:
+    - name: Event name 
+      run : |
+        echo ${{ github.event_name}}
     - name: Register the check
       if: ${{ github.event_name }} == "repository_dispatch"
       uses: SvanBoxel/organization-workflow@main
