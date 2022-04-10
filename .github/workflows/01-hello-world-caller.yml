@@ -10,11 +10,8 @@ jobs:
   register-check:
     runs-on: ubuntu-latest
     steps:
-    - name: Event name 
-      run : |
-        echo ${{ github.event_name}}
     - name: Register the check
-      if: ${{ github.event_name }} == "repository_dispatch"
+      if: github.event_name == "repository_dispatch"
       uses: SvanBoxel/organization-workflow@main
       with:
         id: ${{ github.event.client_payload.id }}
@@ -23,4 +20,5 @@ jobs:
         run_id: ${{ github.run_id }}
         name: ${{ github.workflow }}
   call-01-hello-world:
+    needs: register-check
     uses: repo-ctrl/actions-runbooks/.github/workflows/01-hello-world.yml@main
